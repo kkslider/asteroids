@@ -1,6 +1,6 @@
 Function.prototype.inherits = function(superClass) {
-	function Surrogate() {};
+  function Surrogate() {};
 
-	Surrogate.prototype = superClass.prototype;
-	this.prototype = new Surrogate();
+  Surrogate.prototype = superClass.prototype;
+  this.prototype = new Surrogate();
 }
