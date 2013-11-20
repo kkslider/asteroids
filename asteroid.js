@@ -19,8 +19,4 @@
 		var randomVec = [(Math.random() * 20) - 10, (Math.random() * 20) - 10];
 		return new Asteroid(randomStart, randomVec, Asteroid.RADIUS, Asteroid.COLOR);
 	}
-
-
-
-
 })(this)

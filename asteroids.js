@@ -36,8 +36,4 @@
 			return false;
 		}
 	}
-
-	//
-
-
 })(this)

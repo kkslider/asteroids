@@ -31,7 +31,6 @@ var cat = {
 };
 
 times(10, cat.age_one_year.myBind(cat, 3, 5));
-// console.log(cat.age);
 
 function curriedSum(numArgs) {
 	var numbers = [];
@@ -51,9 +50,6 @@ function curriedSum(numArgs) {
 }
 
 var sum = curriedSum(4);
-// console.log(sum(5)(30)(20)(1));
-// console.log(sum(5)(30)(20)(1));
-
 
 Function.prototype.curry = function(numArgs) {
 	var args = [];
@@ -73,17 +69,5 @@ Function.prototype.curry = function(numArgs) {
 function sumThree(num1, num2, num3) {
   return num1 + num2 + num3;
 }
-
-sumThree(4, 20, 3); // == 27
-
-// you'll write `Function#curry`!
-var f1 = sumThree.curry(3);
-var f2 = f1(4);
-var f3 = f2(20);
-var result = f3(3); // = 27
-
-// or more briefly:
-console.log(sumThree.curry(3)(4)(20)(3)); // == 27
-
 
 

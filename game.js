@@ -13,13 +13,11 @@
 	Game.DIM_X = 1000;
 	Game.DIM_Y = 1000;
 	Game.FPS = 100;
-	// Game.AsteroidCount = 100;
 
 	Game.prototype.addAsteroids = function (numAsteroids) {
 		for (var i = 0; i < numAsteroids; i++ ){
 			this.asteroids.push(Asteroids.Asteroid.randomAsteroid(Game.DIM_X, Game.DIM_Y));
 		}
-		// console.log(this.asteroids);
 	};
 
 	Game.prototype.checkCollisions = function() {
@@ -67,22 +65,6 @@
 
 		key('space', that.fireBullet.bind(that));
 
-		// key('s+d', function() {
-		// 	that.ship.power([1, 1]);
-		// });
-		//
-		// key('s+a', function() {
-		// 	that.ship.power([-1, 1]);
-		// });
-		//
-		// key('w+a', function() {
-		// 	that.ship.power([-1, -1]);
-		// });
-		//
-		// key('w+d', function() {
-		// 	that.ship.power([1, -1]);
-		// });
-
 		key('w', function() {
 			that.ship.power([0, -1]);
 		});
@@ -99,11 +81,7 @@
 		key('s', function() {
 			that.ship.power([0, 1]);
 		});
-
-
 	};
-
-
 
 	Game.prototype.stop = function() {
 		clearInterval(this.time);
@@ -113,7 +91,6 @@
 		ctx.clearRect(0,0, Game.DIM_X, Game.DIM_Y);
 		ctx.fillStyle = "black";
 		ctx.fillRect(0,0, canvas.getAttribute("width"), canvas.getAttribute("height"));
-		//debugger
 		this.ship.draw(ctx);
 		this.bullets.forEach(function(bullet) {
 			bullet.draw(ctx);
@@ -133,9 +110,6 @@
 
 
 	Game.prototype.move = function() {
-		// for (var i = 0; i < this.asteroids.length; i++) {
-		// 	this.asteroids[i].move(this.asteroids[i].vel);
-		// }
 		this.ship.move(this.ship.vel);
 		this.asteroids.forEach(function(asteroid) {
 			asteroid.move(asteroid.vel);
@@ -152,24 +126,16 @@
 		this.checkAllPositions();
 		this.addAsteroids(3);
 		this.removeAsteroids();
-		// this.bindKeyHandlers();
 	};
 
 
 	Game.prototype.start = function() {
 
-
 		this.bindKeyHandlers();
-
-		// this.addAsteroids(Game.AsteroidCount);
-		// var ctx = canvas.getContext("2d");
-		// var that = this
-		// setInterval(this.step.bind(this), Game.FPS);
 
 		var that = this;
 		this.time = root.setInterval(function() {
 			that.step();
-			// console.log("test");
 		}, Game.FPS);
 	};
 
